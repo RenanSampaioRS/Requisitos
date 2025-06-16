@@ -317,68 +317,195 @@
     <h1 class="title animate__animated animate__fadeInDown">Elementos do Diagrama de Atividades</h1>
 
     <div class="elements-grid animate__animated animate__fadeIn animate__delay-1s">
+      <!-- Início -->
       <div class="element-card">
         <div class="element-card-title">
-          <span class="element-icon">⚫</span>
+          <span class="element-icon">
+            <!-- Círculo preto preenchido -->
+            <svg width="32" height="32"><circle cx="16" cy="16" r="12" fill="#222" /></svg>
+          </span>
           <div class="element-content">
             <h3 class="element-title">Início</h3>
           </div>
         </div>
         <p class="element-description">Ponto inicial do processo, representado por um círculo preto preenchido.</p>
       </div>
+
+      <!-- Atividade -->
       <div class="element-card">
         <div class="element-card-title">
-          <span class="element-icon">💼</span>
+          <span class="element-icon">
+            <!-- Retângulo com bordas arredondadas -->
+            <svg width="38" height="28"><rect x="2" y="4" rx="10" ry="10" width="34" height="20" fill="#3b82f6" stroke="#1e293b" stroke-width="2"/></svg>
+          </span>
           <div class="element-content">
             <h3 class="element-title">Atividade</h3>
           </div>
         </div>
         <p class="element-description">Ação ou tarefa, representada por um retângulo com bordas arredondadas.</p>
       </div>
+
+      <!-- Decisão -->
       <div class="element-card">
         <div class="element-card-title">
-          <span class="element-icon">🔶</span>
+          <span class="element-icon">
+            <!-- Losango -->
+            <svg width="32" height="32"><polygon points="16,4 28,16 16,28 4,16" fill="#f59e0b" stroke="#1e293b" stroke-width="2"/></svg>
+          </span>
           <div class="element-content">
             <h3 class="element-title">Decisão</h3>
           </div>
         </div>
         <p class="element-description">Ponto de divisão do fluxo, representado por um losango.</p>
       </div>
+
+      <!-- Fluxo -->
       <div class="element-card">
         <div class="element-card-title">
-          <span class="element-icon">➡️</span>
+          <span class="element-icon">
+            <!-- Seta -->
+            <svg width="40" height="20"><line x1="4" y1="10" x2="32" y2="10" stroke="#2563eb" stroke-width="3"/><polygon points="32,5 38,10 32,15" fill="#2563eb"/></svg>
+          </span>
           <div class="element-content">
             <h3 class="element-title">Fluxo</h3>
           </div>
         </div>
         <p class="element-description">Conexão entre elementos, indicando a sequência, representada por setas.</p>
       </div>
+
+      <!-- Paralelismo (Fork/Join) -->
       <div class="element-card">
         <div class="element-card-title">
-          <span class="element-icon">↔️</span>
+          <span class="element-icon">
+            <!-- Barra horizontal grossa -->
+            <svg width="40" height="16"><rect x="4" y="6" width="32" height="4" fill="#10b981" stroke="#1e293b" stroke-width="1"/></svg>
+          </span>
           <div class="element-content">
-            <h3 class="element-title">Paralelismo</h3>
+            <h3 class="element-title">Paralelismo (Fork/Join)</h3>
           </div>
         </div>
-        <p class="element-description">Início/fim de atividades simultâneas, representado por barras horizontais.</p>
+        <p class="element-description">Início ou fim de atividades simultâneas, representado por uma barra horizontal grossa.</p>
       </div>
+
+      <!-- Fim -->
       <div class="element-card">
         <div class="element-card-title">
-          <span class="element-icon">⚪</span>
+          <span class="element-icon">
+            <!-- Círculo com borda preta e círculo interno preto -->
+            <svg width="32" height="32">
+              <circle cx="16" cy="16" r="12" fill="white" stroke="#222" stroke-width="3"/>
+              <circle cx="16" cy="16" r="7" fill="#222"/>
+            </svg>
+          </span>
           <div class="element-content">
             <h3 class="element-title">Fim</h3>
           </div>
         </div>
-        <p class="element-description">Ponto final do processo, representado por um círculo com borda preta.</p>
+        <p class="element-description">Ponto final do processo, representado por um círculo com borda preta e círculo interno preto.</p>
       </div>
+
+      <!-- Swimlanes -->
       <div class="element-card">
         <div class="element-card-title">
-          <span class="element-icon">🏊‍♂️</span>
+          <span class="element-icon">
+            <!-- Swimlanes: linhas verticais e texto -->
+            <svg width="38" height="32">
+              <rect x="2" y="4" width="34" height="24" fill="#f8fafc" stroke="#1e293b" stroke-width="1"/>
+              <line x1="14" y1="4" x2="14" y2="28" stroke="#3b82f6" stroke-width="2"/>
+              <line x1="26" y1="4" x2="26" y2="28" stroke="#3b82f6" stroke-width="2"/>
+            </svg>
+          </span>
           <div class="element-content">
             <h3 class="element-title">Swimlanes</h3>
           </div>
         </div>
-        <p class="element-description">Divisão em faixas para indicar responsáveis, separadas por linhas.</p>
+        <p class="element-description">Divisão em faixas para indicar responsáveis, separadas por linhas verticais.</p>
+      </div>
+
+      <!-- Nota -->
+      <div class="element-card">
+        <div class="element-card-title">
+          <span class="element-icon">
+            <!-- Nota: retângulo com canto dobrado -->
+            <svg width="32" height="32">
+              <rect x="4" y="6" width="22" height="18" fill="#fffbe7" stroke="#f59e0b" stroke-width="2"/>
+              <polyline points="22,6 28,6 28,12" fill="none" stroke="#f59e0b" stroke-width="2"/>
+              <polygon points="22,6 28,6 22,12" fill="#fffbe7" stroke="#f59e0b" stroke-width="2"/>
+            </svg>
+          </span>
+          <div class="element-content">
+            <h3 class="element-title">Nota</h3>
+          </div>
+        </div>
+        <p class="element-description">Comentário ou explicação adicional, representado por um retângulo com canto dobrado.</p>
+      </div>
+
+      <!-- Objeto -->
+      <div class="element-card">
+        <div class="element-card-title">
+          <span class="element-icon">
+            <!-- Objeto: retângulo com sublinhado -->
+            <svg width="38" height="28">
+              <rect x="2" y="4" width="34" height="16" fill="#e0e7ef" stroke="#475569" stroke-width="2"/>
+              <line x1="2" y1="22" x2="36" y2="22" stroke="#475569" stroke-width="2"/>
+            </svg>
+          </span>
+          <div class="element-content">
+            <h3 class="element-title">Objeto</h3>
+          </div>
+        </div>
+        <p class="element-description">Representa um objeto manipulado durante o processo, geralmente com nome sublinhado.</p>
+      </div>
+
+      <!-- Sinal (Envio/Recebimento) -->
+      <div class="element-card">
+        <div class="element-card-title">
+          <span class="element-icon">
+            <!-- Envelope para sinal -->
+            <svg width="32" height="24">
+              <rect x="2" y="4" width="28" height="16" fill="#fff" stroke="#2563eb" stroke-width="2"/>
+              <polyline points="2,4 16,16 30,4" fill="none" stroke="#2563eb" stroke-width="2"/>
+            </svg>
+          </span>
+          <div class="element-content">
+            <h3 class="element-title">Sinal</h3>
+          </div>
+        </div>
+        <p class="element-description">Envio ou recebimento de sinal, representado por um envelope.</p>
+      </div>
+
+      <!-- Tempo (Tempo/Espera) -->
+      <div class="element-card">
+        <div class="element-card-title">
+          <span class="element-icon">
+            <!-- Relógio -->
+            <svg width="32" height="32">
+              <circle cx="16" cy="16" r="12" fill="#fff" stroke="#1e293b" stroke-width="2"/>
+              <line x1="16" y1="16" x2="16" y2="9" stroke="#f59e0b" stroke-width="2"/>
+              <line x1="16" y1="16" x2="22" y2="16" stroke="#f59e0b" stroke-width="2"/>
+            </svg>
+          </span>
+          <div class="element-content">
+            <h3 class="element-title">Tempo/Espaço</h3>
+          </div>
+        </div>
+        <p class="element-description">Indica espera ou passagem de tempo, geralmente representado por um relógio.</p>
+      </div>
+
+      <!-- Exceção -->
+      <div class="element-card">
+        <div class="element-card-title">
+          <span class="element-icon">
+            <!-- Raio para exceção -->
+            <svg width="32" height="32">
+              <polyline points="12,6 20,16 14,16 20,26" fill="none" stroke="#ef4444" stroke-width="3"/>
+            </svg>
+          </span>
+          <div class="element-content">
+            <h3 class="element-title">Exceção</h3>
+          </div>
+        </div>
+        <p class="element-description">Representa tratamento de erro ou fluxo alternativo, geralmente com símbolo de raio.</p>
       </div>
     </div>
 
