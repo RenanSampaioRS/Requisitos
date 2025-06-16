@@ -177,6 +177,31 @@
       margin-bottom: 1rem;
     }
 
+    .section-card {
+      background-color: white;
+      border-radius: 1rem;
+      padding: 2rem;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      text-align: left;
+      margin-bottom: 2rem;
+      width: 100%;
+      max-width: 900px;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: var(--dark);
+    }
+
+    .section-description {
+      font-size: 1.125rem;
+      color: var(--secondary);
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
     .steps-container {
       display: flex;
       flex-direction: column;
@@ -319,6 +344,28 @@
       .menu-button {
         display: block;
       }
+      .section-card, .steps-container {
+        padding: 1rem;
+        max-width: 100%;
+      }
+      .title {
+        font-size: 2.5rem;
+      }
+      .step-card {
+        padding: 1rem;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .step-number {
+        margin-right: 0;
+        margin-bottom: 1rem;
+      }
+      .step-title {
+        font-size: 1.1rem;
+      }
+      .step-description {
+        font-size: 1rem;
+      }
     }
 
     @media (max-width: 480px) {
@@ -348,7 +395,6 @@
         padding-right: 0.5rem;
       }
     }
-
     @media (max-width: 360px) {
       .title {
         font-size: 1.6rem;
