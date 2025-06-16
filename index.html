@@ -252,6 +252,48 @@
         font-size: 2rem;
       }
     }
+
+   .timeline-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.timeline-step {
+  flex: 1 1 260px;
+  background: white;
+  border-radius: 1.5rem;
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+  transition: transform 0.3s;
+}
+
+.timeline-step:hover {
+  transform: translateY(-4px);
+}
+
+.timeline-step .icon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.timeline-step h3 {
+  font-size: 1.25rem;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+
+.timeline-step p {
+  font-size: 1rem;
+  color: var(--secondary);
+}
+
+
   </style>
 </head>
 <body>
@@ -266,6 +308,7 @@
       </button>
       <div class="nav-links" id="nav-links">
         <a href="index.html" class="active">Introdução</a>
+        <a href="definicao.html" class="active">Definição</a>
         <a href="elementos.html">Elementos</a>
         <a href="forma-uso.html">Forma de Uso</a>
         <a href="exemplo.html">Exemplo</a>
@@ -276,23 +319,48 @@
   </nav>
 
   <main>
-    <h1 class="title animate__animated animate__fadeInDown">Introdução</h1>
+  <h1 class="title animate__animated animate__fadeInDown">Introdução ao Diagrama de Atividades</h1>
 
-    <div class="content-card animate__animated animate__fadeIn animate__delay-1s">
-      <p class="card-description">
-        O <strong>Diagrama de Atividades</strong> é um diagrama comportamental da UML, usado para modelar fluxos de trabalho e processos de negócio. Ele visualiza sequências de atividades, decisões e fluxos de controle, sendo essencial na elicitação e modelagem de requisitos.
-      </p>
-      <p class="card-description mt-4">
-        Este seminário apresenta sua definição, elementos, uso prático e benefícios, alinhado à disciplina de Requisitos e Modelagem de Software.
-      </p>
+  <div class="timeline-container">
+    <div class="timeline-step">
+      <div class="icon">📊</div>
+      <h3>Diagrama UML</h3>
+      <p>Modelo visual que representa o comportamento de um sistema.</p>
     </div>
+    <div class="timeline-step">
+      <div class="icon">🛠</div>
+      <h3>Processos e Tarefas</h3>
+      <p>Permite descrever sequências de atividades em fluxos de trabalho.</p>
+    </div>
+    <div class="timeline-step">
+      <div class="icon">🔁</div>
+      <h3>Fluxo de Controle</h3>
+      <p>Indica a ordem lógica das ações executadas no sistema.</p>
+    </div>
+    <div class="timeline-step">
+      <div class="icon">👥</div>
+      <h3>Interações</h3>
+      <p>Mostra como atores e sistemas participam dos processos.</p>
+    </div>
+    <div class="timeline-step">
+      <div class="icon">💡</div>
+      <h3>Visual Intuitiva</h3>
+      <p>Facilita a leitura e o entendimento dos fluxos por qualquer pessoa.</p>
+    </div>
+    <div class="timeline-step">
+      <div class="icon">📚</div>
+      <h3>Engenharia de Requisitos</h3>
+      <p>Ferramenta essencial na análise e modelagem funcional.</p>
+    </div>
+  </div>
 
-    <div class="bg-circles">
-      <div class="circle" style="width: 300px; height: 300px; background-color: var(--primary); left: 5%; top: 20%;"></div>
-      <div class="circle" style="width: 200px; height: 200px; background-color: var(--accent); right: 10%; bottom: 15%;"></div>
-      <div class="circle" style="width: 150px; height: 150px; background-color: var(--success); left: 15%; bottom: 10%;"></div>
-    </div>
-  </main>
+  <div class="bg-circles">
+    <div class="circle" style="width: 300px; height: 300px; background-color: var(--primary); left: 5%; top: 20%;"></div>
+    <div class="circle" style="width: 200px; height: 200px; background-color: var(--accent); right: 10%; bottom: 15%;"></div>
+    <div class="circle" style="width: 150px; height: 150px; background-color: var(--success); left: 15%; bottom: 10%;"></div>
+  </div>
+</main>
+</main>
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {

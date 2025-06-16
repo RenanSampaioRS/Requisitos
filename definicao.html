@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Diagrama de Atividades - Definição</title>
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/14202/14202868.png" type="image/png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <style>
+    :root {
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --secondary: #475569;
+      --light: #f8fafc;
+      --dark: #1e293b;
+      --accent: #3b82f6;
+      --success: #10b981;
+      --font-sans: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+    }
+
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: var(--font-sans);
+      background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+      color: var(--dark);
+    }
+
+    nav {
+      background-color: var(--primary);
+      padding: 1rem 0;
+      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    .nav-logo {
+      height: 40px;
+      margin-right: 1rem;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      margin-left: 1rem;
+      font-weight: 500;
+    }
+
+    .nav-links a.active {
+      font-weight: bold;
+      border-bottom: 2px solid white;
+    }
+
+    main {
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .title {
+      font-size: 3rem;
+      color: var(--primary);
+      font-weight: bold;
+      margin-bottom: 2rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background: white;
+      border-radius: 1rem;
+      padding: 1.5rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+      color: var(--dark);
+    }
+
+    .card p {
+      font-size: 1.1rem;
+      color: var(--secondary);
+      line-height: 1.5;
+    }
+
+    @media (max-width: 768px) {
+      .title {
+        font-size: 2rem;
+      }
+
+      .card h3 {
+        font-size: 1.3rem;
+      }
+
+      .card p {
+        font-size: 1rem;
+      }
+    }
+
+    .timeline-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.timeline-step {
+  flex: 1 1 260px;
+  background: white;
+  border-radius: 1.5rem;
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+  transition: transform 0.3s;
+}
+
+.timeline-step:hover {
+  transform: translateY(-4px);
+}
+
+.timeline-step .icon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.timeline-step h3 {
+  font-size: 1.25rem;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+
+.timeline-step p {
+  font-size: 1rem;
+  color: var(--secondary);
+}
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-container">
+      <div style="display: flex; align-items: center;">
+        <img src="https://cdn-icons-png.flaticon.com/512/14202/14202868.png" class="nav-logo" alt="Logo" />
+        <span style="font-size: 1.5rem; font-weight: bold;">Diagrama de Atividades</span>
+      </div>
+      <div class="nav-links">
+        <a href="index.html">Introdução</a>
+        <a href="definicao.html" class="active">Definição</a>
+        <a href="elementos.html">Elementos</a>
+        <a href="forma-uso.html">Forma de Uso</a>
+        <a href="exemplo.html">Exemplo</a>
+        <a href="beneficios.html">Benefícios</a>
+        <a href="conclusao.html">Conclusão</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+  <h1 class="title animate__animated animate__fadeInDown">Definição</h1>
+
+  <div class="timeline-container">
+    <div class="timeline-step">
+      <div class="icon">📋</div>
+      <h3>O que é?</h3>
+      <p>Descreve graficamente a sequência de atividades de um processo.</p>
+    </div>
+    <div class="timeline-step">
+      <div class="icon">🔁</div>
+      <h3>Fluxo de Controle</h3>
+      <p>Define a ordem em que as atividades são executadas.</p>
+    </div>
+    <div class="timeline-step">
+      <div class="icon">🔀</div>
+      <h3>Decisões</h3>
+      <p>Mostra pontos de bifurcação baseados em condições.</p>
+    </div>
+    <div class="timeline-step">
+      <div class="icon">⏩</div>
+      <h3>Paralelismo</h3>
+      <p>Permite que atividades ocorram simultaneamente.</p>
+    </div>
+    <div class="timeline-step">
+      <div class="icon">🤝</div>
+      <h3>Interações</h3>
+      <p>Mostra participação de atores ou sistemas no processo.</p>
+    </div>
+    <div class="timeline-step">
+      <div class="icon">📊</div>
+      <h3>Alto e Baixo Nível</h3>
+      <p>Aplica-se a processos de negócio ou fluxos internos.</p>
+    </div>
+    <div class="timeline-step">
+      <div class="icon">🧠</div>
+      <h3>Requisitos</h3>
+      <p>É essencial para documentar requisitos funcionais.</p>
+    </div>
+  </div>
+</main>
+</body>
+</html>
