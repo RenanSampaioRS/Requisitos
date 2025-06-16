@@ -16,19 +16,32 @@
       --accent: #3b82f6;
       --success: #10b981;
       --warning: #f59e0b;
+      --error: #ef4444; /* Adicionado para consistência com exemplo.html */
       --font-sans: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
       --font-mono: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+      --nav-height: 80px; /* Altura padrão da navbar */
     }
 
+    /* Reset básico para todos os elementos */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
+    /* Remove scrollbar completamente */
+    ::-webkit-scrollbar {
+      display: none;
+    }
+    * {
+      -ms-overflow-style: none;  /* IE and Edge */
+      scrollbar-width: none;  /* Firefox */
+    }
+
+    /* Estilos globais para body e html (sem rolagem no body, rolagem no main) */
     body, html {
-      min-height: 100vh;
-      overflow-y: auto;
+      height: 100vh; /* Garante que o corpo ocupa a altura total da viewport */
+      overflow: hidden; /* Remove rolagem do body */
       font-family: var(--font-sans);
       background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
       color: var(--dark);
@@ -36,15 +49,19 @@
       flex-direction: column;
     }
 
+    /* Estilos da barra de navegação */
     nav {
       background-color: var(--primary);
       color: white;
       padding: 1rem 0;
       box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
       z-index: 100;
-      position: sticky;
+      position: sticky; /* Permanece no topo (com overflow:hidden no body, se comporta como fixed) */
       top: 0;
       width: 100%;
+      height: var(--nav-height);
+      display: flex;
+      align-items: center;
     }
 
     .nav-container {
@@ -54,6 +71,7 @@
       max-width: 1200px;
       margin: 0 auto;
       padding: 0 1rem;
+      width: 100%; /* Garante que ocupe a largura total dentro do nav */
     }
 
     .logo-container {
@@ -94,7 +112,7 @@
     }
 
     .menu-button {
-      display: none;
+      display: none; /* Escondido por padrão (desktop) */
       background: none;
       border: none;
       color: white;
@@ -108,33 +126,40 @@
       color: rgba(255, 255, 255, 0.8);
     }
 
+    /* Estilos da área principal de conteúdo */
     main {
-      flex: 1;
+      flex: 1; /* Permite que a main ocupe o espaço restante */
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
       align-items: center;
-      padding: 2rem;
+      padding: 1rem; /* Reduzido para dar mais espaço */
       text-align: center;
       position: relative;
-      padding-top: 1rem;
+      overflow-y: auto; /* Permite rolagem dentro da main */
+      overflow-x: hidden; /* Esconde rolagem horizontal */
+      height: calc(100vh - var(--nav-height)); /* Ocupa altura restante */
     }
 
+    /* Estilos específicos para esta página */
     .title {
       font-size: 3.5rem;
       font-weight: 800;
       margin-bottom: 2rem;
       color: var(--primary);
       text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+      flex-shrink: 0; /* Impede que o título encolha */
     }
 
     .elements-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 2rem;
-      width: auto;              /* Permite o grid encolher para o conteúdo */
-      margin: 0 auto;           /* Centraliza o grid na página */
-      justify-content: center;  /* Centraliza os itens da última linha */
+      width: auto;
+      margin: 0 auto;
+      justify-content: center;
+      flex-shrink: 0; /* Impede que o grid encolha */
+      padding-bottom: 2rem; /* Adiciona padding para o último elemento não ficar no final da rolagem */
     }
 
     .element-card {
@@ -200,29 +225,35 @@
       opacity: 0.1;
     }
 
+    /* Media queries para responsividade */
     @media (max-width: 768px) {
+      :root {
+        --nav-height: 70px; /* Altura menor da navbar em mobile */
+      }
       body, html {
-        overflow-y: auto;
-        height: auto;
+        overflow-y: hidden; /* Sem rolagem no body, controlado pelo main */
+        height: 100vh;
         padding-top: 0;
       }
-
       nav {
-        position: fixed;
+        position: fixed; /* Navbar fixa no topo em mobile */
         top: 0;
         left: 0;
         width: 100%;
+        height: var(--nav-height);
+        padding: 0.75rem 0; /* Padding ajustado */
       }
-
       main {
-        padding-top: 5rem;
-        margin-top: 1rem;
+        padding-top: var(--nav-height); /* Empurra o conteúdo para baixo da navbar fixa */
+        height: 100vh; /* Ocupa a altura total da viewport no mobile */
+        padding-left: 0.75rem;
+        padding-right: 0.75rem;
+        padding-bottom: 0.75rem;
       }
-
       .nav-links {
         display: none;
         position: absolute;
-        top: 73px;
+        top: var(--nav-height); /* Posiciona abaixo da navbar */
         left: 0;
         width: 100%;
         flex-direction: column;
@@ -231,63 +262,80 @@
         padding: 1rem 0;
         z-index: 50;
       }
-
       .nav-links.active {
         display: flex;
       }
-
       .nav-links a {
         width: 100%;
         text-align: center;
         padding: 1rem;
         border-radius: 0;
+        font-size: 1rem;
       }
-
       .menu-button {
-        display: block;
+        display: block; /* Mostra o botão de menu em mobile */
       }
-
       .elements-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; /* Uma coluna em mobile */
         gap: 1.5rem;
       }
-
       .title {
         font-size: 2.5rem;
       }
-
       .element-card {
         padding: 1rem;
         flex-direction: column;
         align-items: flex-start;
       }
-
       .element-icon {
         margin-right: 0;
         margin-bottom: 1rem;
       }
-
       .element-title {
         font-size: 1.25rem;
       }
-
       .element-description {
         font-size: 1rem;
       }
     }
 
     @media (max-width: 480px) {
+      :root {
+        --nav-height: 65px; /* Altura menor para telas muito pequenas */
+      }
       .nav-container {
         justify-content: space-between;
+        padding: 0 0.75rem;
       }
-
+      .nav-logo {
+        height: 32px;
+        margin-right: 0.75rem;
+      }
+      .logo-container span {
+        font-size: 1.2rem !important;
+      }
       nav a {
-        font-size: 0.875rem;
-        padding: 0.25rem;
+        font-size: 0.9rem;
+        padding: 0.75rem;
       }
-
       .title {
         font-size: 2rem;
+      }
+      main {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .title {
+        font-size: 1.6rem;
+      }
+      .element-title {
+        font-size: 1rem;
+      }
+      .element-description {
+        font-size: 0.8rem;
       }
     }
   </style>
@@ -296,7 +344,7 @@
   <nav>
     <div class="nav-container">
       <div class="logo-container">
-        <img src="https://cdn-icons-png.flaticon.com/512/14202/14202868.png" alt="ConfLoto Logo" class="nav-logo">
+        <img src="https://cdn-icons-png.flaticon.com/512/14202/14202868.png" alt="Logo" class="nav-logo">
         <span style="font-weight: bold; font-size: 1.5rem; color: white;">Diagrama de Atividades</span>
       </div>
       <button class="menu-button" id="menu-toggle">
@@ -487,7 +535,7 @@
             </svg>
           </span>
           <div class="element-content">
-            <h3 class="element-title">Tempo/Espaço</h3>
+            <h3 class="element-title">Tempo/Espera</h3>
           </div>
         </div>
         <p class="element-description">Indica espera ou passagem de tempo, geralmente representado por um relógio.</p>
@@ -532,6 +580,14 @@
         link.addEventListener('click', () => {
           navLinks.classList.remove('active');
         });
+      });
+
+      // Fecha o menu ao clicar fora dele
+      document.addEventListener('click', (e) => {
+        const navElement = document.querySelector('nav');
+        if (navElement && !navElement.contains(e.target) && navLinks.classList.contains('active')) {
+          navLinks.classList.remove('active');
+        }
       });
 
       // Marcar a página atual como ativa
