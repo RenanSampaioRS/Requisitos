@@ -15,35 +15,44 @@
       --dark: #1e293b;
       --accent: #3b82f6;
       --success: #10b981;
+      --warning: #f59e0b;
+      --error: #ef4444; /* Adicionado para consistência com exemplo.html */
       --font-sans: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
-      --font-mono: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace; /* Adicionado para consistência */
+      --font-mono: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+      --nav-height: 80px; /* Altura padrão da navbar */
     }
 
-    * { /* Adicionado para consistência */
+    /* Reset básico para todos os elementos */
+    * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
+    /* Estilos globais para body e html (com rolagem vertical) */
     body, html {
-      min-height: 100vh; /* Adicionado para consistência */
-      overflow-y: auto;
+      min-height: 100vh; /* Garante que o corpo ocupa a altura mínima da viewport */
+      overflow-y: auto; /* Permite rolagem vertical quando o conteúdo exceder */
       font-family: var(--font-sans);
       background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
       color: var(--dark);
-      display: flex; /* Adicionado para consistência */
-      flex-direction: column; /* Adicionado para consistência */
+      display: flex;
+      flex-direction: column;
     }
 
+    /* Estilos da barra de navegação */
     nav {
       background-color: var(--primary);
-      color: white; /* Adicionado para consistência */
+      color: white;
       padding: 1rem 0;
-      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* Adicionado para consistência */
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
       z-index: 100;
-      position: sticky;
+      position: sticky; /* Permanece no topo ao rolar */
       top: 0;
       width: 100%;
+      height: var(--nav-height);
+      display: flex;
+      align-items: center;
     }
 
     .nav-container {
@@ -53,9 +62,10 @@
       max-width: 1200px;
       margin: 0 auto;
       padding: 0 1rem;
+      width: 100%; /* Garante que ocupe a largura total dentro do nav */
     }
 
-    .logo-container { /* Classe ajustada */
+    .logo-container {
       display: flex;
       align-items: center;
     }
@@ -65,7 +75,7 @@
       margin-right: 1rem;
     }
 
-    .nav-links { /* Adicionado para desktop */
+    .nav-links {
       display: flex;
       justify-content: space-around;
       align-items: center;
@@ -93,7 +103,7 @@
     }
 
     .menu-button {
-      display: none;
+      display: none; /* Escondido por padrão (desktop) */
       background: none;
       border: none;
       color: white;
@@ -107,134 +117,25 @@
       color: rgba(255, 255, 255, 0.8);
     }
 
+    /* Estilos da área principal de conteúdo */
     main {
-      flex: 1; /* Adicionado para consistência */
-      display: flex; /* Adicionado para consistência */
-      flex-direction: column; /* Adicionado para consistência */
-      justify-content: flex-start; /* Adicionado para consistência */
-      align-items: center; /* Adicionado para consistência */
-      padding: 2rem;
+      flex: 1; /* Permite que a main ocupe o espaço restante */
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
       text-align: center;
-      position: relative; /* Adicionado para consistência */
-      padding-top: 1rem; /* Adicionado para consistência */
+      position: relative;
+      padding-top: 1rem; /* Mantém o padding-top original */
     }
 
+    /* Estilos específicos para esta página */
     .title {
-      font-size: 3rem; /* Mantido conforme original */
+      font-size: 3rem;
       color: var(--primary);
       font-weight: bold;
       margin-bottom: 2rem;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.1); /* Adicionado para consistência */
-    }
-
-    .grid { /* Mantido conforme original, assumindo que ainda é relevante para o conteúdo desta página */
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.5rem;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-
-    .card { /* Mantido conforme original */
-      background: white;
-      border-radius: 1rem;
-      padding: 1.5rem;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
-      text-align: center;
-      transition: transform 0.3s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-    }
-
-    .card h3 {
-      font-size: 1.5rem;
-      margin-bottom: 0.5rem;
-      color: var(--dark);
-    }
-
-    .card p {
-      font-size: 1.1rem;
-      color: var(--secondary);
-      line-height: 1.5;
-    }
-
-    /* Media query para consistência */
-    @media (max-width: 768px) {
-      body, html {
-        overflow-y: auto;
-        height: auto;
-        padding-top: 0;
-      }
-
-      nav {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-      }
-
-      main {
-        padding-top: 5rem;
-        margin-top: 1rem;
-      }
-
-      .nav-links {
-        display: none;
-        position: absolute;
-        top: 73px;
-        left: 0;
-        width: 100%;
-        flex-direction: column;
-        background-color: var(--primary);
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-        padding: 1rem 0;
-        z-index: 50;
-      }
-
-      .nav-links.active {
-        display: flex;
-      }
-
-      .nav-links a {
-        width: 100%;
-        text-align: center;
-        padding: 1rem;
-        border-radius: 0;
-      }
-
-      .menu-button {
-        display: block;
-      }
-
-      .title {
-        font-size: 2.5rem;
-      }
-
-      .card h3 {
-        font-size: 1.3rem;
-      }
-
-      .card p {
-        font-size: 1rem;
-      }
-    }
-
-    /* Media query adicional para consistência de telas menores */
-    @media (max-width: 480px) {
-      .nav-container {
-        justify-content: space-between;
-      }
-
-      nav a {
-        font-size: 0.875rem;
-        padding: 0.25rem;
-      }
-
-      .title {
-        font-size: 2rem;
-      }
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
     }
 
     .timeline-container {
@@ -276,21 +177,119 @@
       font-size: 1rem;
       color: var(--secondary);
     }
+
+    .bg-circles { /* Adicionado para consistência */
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: -1;
+    }
+
+    .circle { /* Adicionado para consistência */
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.1;
+    }
+
+    /* Media queries para responsividade */
+    @media (max-width: 768px) {
+      :root {
+        --nav-height: 70px; /* Altura menor da navbar em mobile */
+      }
+      body, html {
+        overflow-y: auto; /* Garante rolagem no mobile */
+        height: auto; /* Permite que a altura do corpo se ajuste ao conteúdo */
+        padding-top: 0;
+      }
+      nav {
+        position: fixed; /* Navbar fixa no topo em mobile */
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: var(--nav-height);
+        padding: 0.75rem 0; /* Padding ajustado */
+      }
+      main {
+        padding-top: 5rem; /* Empurra o conteúdo para baixo da navbar fixa */
+        margin-top: 1rem;
+      }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: var(--nav-height); /* Posiciona abaixo da navbar */
+        left: 0;
+        width: 100%;
+        flex-direction: column;
+        background-color: var(--primary);
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        padding: 1rem 0;
+        z-index: 50;
+      }
+      .nav-links.active {
+        display: flex;
+      }
+      .nav-links a {
+        width: 100%;
+        text-align: center;
+        padding: 1rem;
+        border-radius: 0;
+        font-size: 1rem;
+      }
+      .menu-button {
+        display: block; /* Mostra o botão de menu em mobile */
+      }
+      .title {
+        font-size: 2.5rem;
+      }
+      .timeline-step h3 { /* Ajuste para evitar conflito com .card h3 */
+        font-size: 1.3rem;
+      }
+      .timeline-step p { /* Ajuste para evitar conflito com .card p */
+        font-size: 1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      :root {
+        --nav-height: 65px; /* Altura menor para telas muito pequenas */
+      }
+      .nav-container {
+        justify-content: space-between;
+        padding: 0 0.75rem;
+      }
+      .nav-logo {
+        height: 32px;
+        margin-right: 0.75rem;
+      }
+      .logo-container span {
+        font-size: 1.2rem !important;
+      }
+      nav a {
+        font-size: 0.9rem;
+        padding: 0.75rem;
+      }
+      .title {
+        font-size: 2rem;
+      }
+    }
   </style>
 </head>
 <body>
   <nav>
     <div class="nav-container">
-      <div class="logo-container"> <!-- Classe adicionada -->
+      <div class="logo-container">
         <img src="https://cdn-icons-png.flaticon.com/512/14202/14202868.png" class="nav-logo" alt="Logo" />
         <span style="font-size: 1.5rem; font-weight: bold;">Diagrama de Atividades</span>
       </div>
-      <button class="menu-button" id="menu-toggle"> <!-- Botão adicionado -->
+      <button class="menu-button" id="menu-toggle">
         ☰
       </button>
-      <div class="nav-links" id="nav-links"> <!-- ID adicionado -->
+      <div class="nav-links" id="nav-links">
         <a href="index.html">Introdução</a>
-        <a href="definicao.html">Definição</a> <!-- 'active' class handled by JS -->
+        <a href="definicao.html">Definição</a>
         <a href="elementos.html">Elementos</a>
         <a href="forma-uso.html">Forma de Uso</a>
         <a href="exemplo.html">Exemplo</a>
@@ -301,46 +300,57 @@
   </nav>
 
   <main>
-  <h1 class="title animate__animated animate__fadeInDown">Definição</h1>
+    <h1 class="title animate__animated animate__fadeInDown">Definição</h1>
 
-  <div class="timeline-container">
-    <div class="timeline-step">
-      <div class="icon">📋</div>
-      <h3>O que é?</h3>
-      <p>Descreve graficamente a sequência de atividades de um processo.</p>
+    <div class="timeline-container">
+      <div class="timeline-step">
+        <div class="icon">📋</div>
+        <h3>O que é?</h3>
+        <p>Descreve graficamente a sequência de atividades de um processo.</p>
+      </div>
+      <div class="timeline-step">
+        <div class="icon">🔍</div>
+        <h3>Objetivo</h3>
+        <p>Modelar o fluxo de controle de um sistema ou processo de negócio.</p>
+      </div>
+      <div class="timeline-step">
+        <div class="icon">��</div>
+        <h3>Fluxo de Controle</h3>
+        <p>Define a ordem em que as atividades são executadas.</p>
+      </div>
+      <div class="timeline-step">
+        <div class="icon">🔀</div>
+        <h3>Decisões</h3>
+        <p>Mostra pontos de bifurcação baseados em condições.</p>
+      </div>
+      <div class="timeline-step">
+        <div class="icon">⏩</div>
+        <h3>Paralelismo</h3>
+        <p>Permite que atividades ocorram simultaneamente.</p>
+      </div>
+      <div class="timeline-step">
+        <div class="icon">��</div>
+        <h3>Interações</h3>
+        <p>Mostra participação de atores ou sistemas no processo.</p>
+      </div>
+      <div class="timeline-step">
+        <div class="icon">��</div>
+        <h3>Alto e Baixo Nível</h3>
+        <p>Aplica-se a processos de negócio ou fluxos internos.</p>
+      </div>
+      <div class="timeline-step">
+        <div class="icon">🧠</div>
+        <h3>Requisitos</h3>
+        <p>É essencial para documentar requisitos funcionais.</p>
+      </div>
     </div>
-    <div class="timeline-step">
-      <div class="icon">🔁</div>
-      <h3>Fluxo de Controle</h3>
-      <p>Define a ordem em que as atividades são executadas.</p>
+
+    <div class="bg-circles">
+      <div class="circle" style="width: 300px; height: 300px; background-color: var(--primary); left: 5%; top: 20%;"></div>
+      <div class="circle" style="width: 200px; height: 200px; background-color: var(--accent); right: 10%; bottom: 15%;"></div>
+      <div class="circle" style="width: 150px; height: 150px; background-color: var(--success); left: 15%; bottom: 10%;"></div>
     </div>
-    <div class="timeline-step">
-      <div class="icon">🔀</div>
-      <h3>Decisões</h3>
-      <p>Mostra pontos de bifurcação baseados em condições.</p>
-    </div>
-    <div class="timeline-step">
-      <div class="icon">⏩</div>
-      <h3>Paralelismo</h3>
-      <p>Permite que atividades ocorram simultaneamente.</p>
-    </div>
-    <div class="timeline-step">
-      <div class="icon">🤝</div>
-      <h3>Interações</h3>
-      <p>Mostra participação de atores ou sistemas no processo.</p>
-    </div>
-    <div class="timeline-step">
-      <div class="icon">📊</div>
-      <h3>Alto e Baixo Nível</h3>
-      <p>Aplica-se a processos de negócio ou fluxos internos.</p>
-    </div>
-    <div class="timeline-step">
-      <div class="icon">🧠</div>
-      <h3>Requisitos</h3>
-      <p>É essencial para documentar requisitos funcionais.</p>
-    </div>
-  </div>
-</main>
+  </main>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       // Funcionalidade do menu mobile
@@ -356,6 +366,14 @@
         link.addEventListener('click', () => {
           navLinks.classList.remove('active');
         });
+      });
+
+      // Fecha o menu ao clicar fora dele
+      document.addEventListener('click', (e) => {
+        const navElement = document.querySelector('nav');
+        if (navElement && !navElement.contains(e.target) && navLinks.classList.contains('active')) {
+          navLinks.classList.remove('active');
+        }
       });
 
       // Marcar a página atual como ativa
