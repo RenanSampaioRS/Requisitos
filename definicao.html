@@ -16,23 +16,34 @@
       --accent: #3b82f6;
       --success: #10b981;
       --font-sans: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+      --font-mono: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace; /* Adicionado para consistência */
+    }
+
+    * { /* Adicionado para consistência */
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
     body, html {
-      margin: 0;
-      padding: 0;
+      min-height: 100vh; /* Adicionado para consistência */
+      overflow-y: auto;
       font-family: var(--font-sans);
       background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
       color: var(--dark);
+      display: flex; /* Adicionado para consistência */
+      flex-direction: column; /* Adicionado para consistência */
     }
 
     nav {
       background-color: var(--primary);
+      color: white; /* Adicionado para consistência */
       padding: 1rem 0;
-      color: white;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* Adicionado para consistência */
+      z-index: 100;
       position: sticky;
       top: 0;
-      z-index: 100;
+      width: 100%;
     }
 
     .nav-container {
@@ -44,36 +55,79 @@
       padding: 0 1rem;
     }
 
+    .logo-container { /* Classe ajustada */
+      display: flex;
+      align-items: center;
+    }
+
     .nav-logo {
       height: 40px;
       margin-right: 1rem;
     }
 
-    .nav-links a {
-      color: white;
-      text-decoration: none;
-      margin-left: 1rem;
-      font-weight: 500;
+    .nav-links { /* Adicionado para desktop */
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
     }
 
-    .nav-links a.active {
-      font-weight: bold;
-      border-bottom: 2px solid white;
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+      border-radius: 0.375rem;
+      transition: all 0.3s ease;
+    }
+
+    nav a:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+      transform: translateY(-2px);
+    }
+
+    nav a.active {
+      font-weight: 700;
+      background-color: rgba(255, 255, 255, 0.2);
+      border-bottom: 3px solid white;
+    }
+
+    .menu-button {
+      display: none;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+      padding: 0.5rem;
+      transition: all 0.3s ease;
+    }
+
+    .menu-button:hover {
+      color: rgba(255, 255, 255, 0.8);
     }
 
     main {
+      flex: 1; /* Adicionado para consistência */
+      display: flex; /* Adicionado para consistência */
+      flex-direction: column; /* Adicionado para consistência */
+      justify-content: flex-start; /* Adicionado para consistência */
+      align-items: center; /* Adicionado para consistência */
       padding: 2rem;
       text-align: center;
+      position: relative; /* Adicionado para consistência */
+      padding-top: 1rem; /* Adicionado para consistência */
     }
 
     .title {
-      font-size: 3rem;
+      font-size: 3rem; /* Mantido conforme original */
       color: var(--primary);
       font-weight: bold;
       margin-bottom: 2rem;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.1); /* Adicionado para consistência */
     }
 
-    .grid {
+    .grid { /* Mantido conforme original, assumindo que ainda é relevante para o conteúdo desta página */
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 1.5rem;
@@ -81,7 +135,7 @@
       margin: 0 auto;
     }
 
-    .card {
+    .card { /* Mantido conforme original */
       background: white;
       border-radius: 1rem;
       padding: 1.5rem;
@@ -106,9 +160,56 @@
       line-height: 1.5;
     }
 
+    /* Media query para consistência */
     @media (max-width: 768px) {
+      body, html {
+        overflow-y: auto;
+        height: auto;
+        padding-top: 0;
+      }
+
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+      }
+
+      main {
+        padding-top: 5rem;
+        margin-top: 1rem;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 73px;
+        left: 0;
+        width: 100%;
+        flex-direction: column;
+        background-color: var(--primary);
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        padding: 1rem 0;
+        z-index: 50;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .nav-links a {
+        width: 100%;
+        text-align: center;
+        padding: 1rem;
+        border-radius: 0;
+      }
+
+      .menu-button {
+        display: block;
+      }
+
       .title {
-        font-size: 2rem;
+        font-size: 2.5rem;
       }
 
       .card h3 {
@@ -120,57 +221,76 @@
       }
     }
 
+    /* Media query adicional para consistência de telas menores */
+    @media (max-width: 480px) {
+      .nav-container {
+        justify-content: space-between;
+      }
+
+      nav a {
+        font-size: 0.875rem;
+        padding: 0.25rem;
+      }
+
+      .title {
+        font-size: 2rem;
+      }
+    }
+
     .timeline-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 2rem;
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 1rem;
-}
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1rem;
+    }
 
-.timeline-step {
-  flex: 1 1 260px;
-  background: white;
-  border-radius: 1.5rem;
-  padding: 1.5rem;
-  text-align: center;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-  transition: transform 0.3s;
-}
+    .timeline-step {
+      flex: 1 1 260px;
+      background: white;
+      border-radius: 1.5rem;
+      padding: 1rem;
+      text-align: center;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+      transition: transform 0.3s;
+    }
 
-.timeline-step:hover {
-  transform: translateY(-4px);
-}
+    .timeline-step:hover {
+      transform: translateY(-4px);
+    }
 
-.timeline-step .icon {
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
-}
+    .timeline-step .icon {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
 
-.timeline-step h3 {
-  font-size: 1.25rem;
-  color: var(--primary);
-  margin-bottom: 0.5rem;
-}
+    .timeline-step h3 {
+      font-size: 1.25rem;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
 
-.timeline-step p {
-  font-size: 1rem;
-  color: var(--secondary);
-}
+    .timeline-step p {
+      font-size: 1rem;
+      color: var(--secondary);
+    }
   </style>
 </head>
 <body>
   <nav>
     <div class="nav-container">
-      <div style="display: flex; align-items: center;">
+      <div class="logo-container"> <!-- Classe adicionada -->
         <img src="https://cdn-icons-png.flaticon.com/512/14202/14202868.png" class="nav-logo" alt="Logo" />
         <span style="font-size: 1.5rem; font-weight: bold;">Diagrama de Atividades</span>
       </div>
-      <div class="nav-links">
+      <button class="menu-button" id="menu-toggle"> <!-- Botão adicionado -->
+        ☰
+      </button>
+      <div class="nav-links" id="nav-links"> <!-- ID adicionado -->
         <a href="index.html">Introdução</a>
-        <a href="definicao.html" class="active">Definição</a>
+        <a href="definicao.html">Definição</a> <!-- 'active' class handled by JS -->
         <a href="elementos.html">Elementos</a>
         <a href="forma-uso.html">Forma de Uso</a>
         <a href="exemplo.html">Exemplo</a>
@@ -221,5 +341,33 @@
     </div>
   </div>
 </main>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Funcionalidade do menu mobile
+      const menuToggle = document.getElementById('menu-toggle');
+      const navLinks = document.getElementById('nav-links');
+
+      menuToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+      });
+
+      // Fecha o menu ao clicar em um link
+      document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+          navLinks.classList.remove('active');
+        });
+      });
+
+      // Marcar a página atual como ativa
+      const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+      document.querySelectorAll('.nav-links a').forEach(link => {
+        if (link.getAttribute('href') === currentPage) {
+          link.classList.add('active');
+        } else {
+          link.classList.remove('active');
+        }
+      });
+    });
+  </script>
 </body>
 </html>
